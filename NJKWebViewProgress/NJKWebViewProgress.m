@@ -103,6 +103,12 @@ const float NJKFinalProgressValue = 0.9f;
         _currentURL = request.URL;
         [self reset];
     }
+    // modify by tianya
+    BOOL isFile = [request.URL.scheme isEqualToString:@"file"];
+    if (isFile) {
+        _currentURL = request.URL;
+        [self setProgress:0.0];
+    }
     return ret;
 }
 
